@@ -1,6 +1,6 @@
 ﻿<?php
-require_once('C:\Users\Alunos\Downloads\nusoap-0.9.5\lib\nusoap.php');
-$wsdl   = 'http://localhost/maumau/server2.php?wsdl';
+require_once('nusoap/lib/nusoap.php');
+$wsdl   = 'http://localhost/SOR2-ProjetoFinal/server2.php?wsdl';
 $client = new soapclient($wsdl, true);
 $err    = $client->getError();
 if ($err) {
@@ -16,9 +16,11 @@ if ($client->fault) {
     if ($err) {
         echo "Erro<pre>" . $err . "</pre>";
     } else {
-    	foreach ($aluno as $result) {
+    	/*foreach ($aluno as $result) {
     		print_r($aluno);
-    	}
+    	}*/
+        print_r($result);
+        
     }
 }
 ?>

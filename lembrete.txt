@@ -1,0 +1,6 @@
+Lembre-se!
+
+. Comentar a linha ;extension=php_soap.dll  no php.ini. Caso o php_soap.dll esteja ativo a classe nuSOAP não irá funcionar.
+
+. Reiniciar
+o Apache.
