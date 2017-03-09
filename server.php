@@ -5,22 +5,23 @@ $server->configureWSDL('urn:Servidor');
 $server->wsdl->schemaTargetNamespace = 'urn:Servidor';
 
 
-function exemplo($name){
+function exemplo($id){
 	$con = mysql_connect ('localhost', 'root');
 	mysql_select_db('maumau');
-	$query = mysql_query("SELECT id FROM disciplina WHERE nome='".$name."'");
-	$id = mysql_result($query,0,'id');
+	$query = mysql_query("SELECT nome FROM disciplina WHERE id =".$id);
+	$nome = mysql_result($query, 0, "nome");
 	$query2 = mysql_query("SELECT * FROM aluno,turmas WHERE turmas.id_disciplina=".$id." AND turmas.id_aluno=aluno.id GROUP BY aluno.nome");
 	$array = [];
+	$array["disciplina"] = utf8_encode($nome);
 	while ($resultado = mysql_fetch_array($query2)){
-		array_push($array, $resultado["nome"]);
+		$r = utf8_encode($resultado["nome"]);
+		$array[$resultado["matricula"]] =  $r; 
 	}
-	//$resultado = mysql_fetch_array($query2);
 	
 	return serialize($array);
 }
  $server->register('exemplo', 
-	array('name' => 'xsd:int'),
+	array('id' => 'xsd:int'),
 	array('return' => 'xsd:string'),
 	'urn:Servidor.exemplo',
 	'urn:Servidor.exemplo',
@@ -28,7 +29,7 @@ function exemplo($name){
 	'encoded',
 	'Retorna os alunos');
 
- $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
+$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
 $server->service($HTTP_RAW_POST_DATA);
 
  ?>

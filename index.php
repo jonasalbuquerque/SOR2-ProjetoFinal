@@ -10,8 +10,17 @@
 </head>
 <body>
 	<form action="client.php" method="POST">
-		<p>DIGITE O NOME DA DISCIPLINA</p>
-		<input type="text" name="disciplina">
+		<p>ESCOLHA A DISCIPLINA</p>
+		<select name="disciplina" >
+			<option value="0"></option>
+			<option value="1" >Implementação de Sistemas</option>
+			<option value="2">Sistemas Operacionais de Redes I</option>
+			<option value="3">Gestão Empresarial</option>
+			<option value="4">Suporte ao Usuário</option>
+			<option value="5">Tópicos especiais em informática</option>
+
+
+		</select>
 		<input type="submit" name="" value="Enviar">
 	</form>
 </body>
