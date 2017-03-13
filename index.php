@@ -1,7 +1,3 @@
-<?php 
- ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,19 +5,9 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<form action="client.php" method="POST">
-		<p>ESCOLHA A DISCIPLINA</p>
-		<select name="disciplina" >
-			<option value="0"></option>
-			<option value="1" >Implementação de Sistemas</option>
-			<option value="2">Sistemas Operacionais de Redes I</option>
-			<option value="3">Gestão Empresarial</option>
-			<option value="4">Suporte ao Usuário</option>
-			<option value="5">Tópicos especiais em informática</option>
-
-
-		</select>
-		<input type="submit" name="" value="Enviar">
-	</form>
+	<p>Funções</p>
+	<p><a href='exibe.php'>Listar alunos por disciplina</a></p>
+	<p><a href='cadastro.php'>Cadastrar alunos</a></p>
+	<p><a href='turmas.php'>Matricular aluno em disciplina</a></p>		
 </body>
 </html>
